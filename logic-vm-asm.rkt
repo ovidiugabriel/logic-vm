@@ -11,10 +11,10 @@
      (callback line out) ) ) )
 
 (define (assemble-file file-path binary-path)
-  (define out (open-output-file binary-path #:exists 'replace))
-  (with-input-from-file file-path
-    (for-each-line assemble-line out) )
-  (close-output-port out))
+  (let ([out (open-output-file binary-path #:exists 'replace)])
+    (with-input-from-file file-path
+      (for-each-line assemble-line out) )
+    (close-output-port out) ) )
 
 (define (filter-spaces lst)
   (filter (λ (x) (not (equal? "" x))) lst) )
