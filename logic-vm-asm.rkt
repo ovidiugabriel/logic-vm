@@ -1,5 +1,6 @@
 #lang racket
 
+;; 🇪🇪
 ;; logic-vm assembler utility
 
 (require racket/function)
